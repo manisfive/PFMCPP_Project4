@@ -36,6 +36,7 @@
  6) After you finish defining each type/function, click the [run] button.  Clear up any errors or warnings as best you can.
  */
 
+
 /*
 your program should generate the following output EXACTLY.
 This includes the warnings.
@@ -94,6 +95,86 @@ good to go!
 #include <iostream>
 int main() 
 {
+    struct FloatType
+    {
+        float add(float lhs, float rhs)
+        {
+            return lhs + rhs;
+        }
+        float subtract(float lhs, float rhs)
+        {
+            return lhs - rhs;
+        }
+        float multiply(float lhs, float rhs)
+        {
+            return lhs * rhs;
+        }
+        float divide(float lhs, float rhs)
+        {
+            if(rhs == 0.f)
+            {
+                std::cout << "\nwarning, floating point division by zero returns 'inf' !" << std::endl;
+            }
+            return lhs / rhs;
+        }
+
+    };
+
+    struct DoubleType
+    {
+        double add(double lhs, double rhs)
+        {
+            return lhs + rhs;
+        }
+        double subtract(double lhs, double rhs)
+        {
+            return lhs - rhs;
+        }
+        double multiply(double lhs, double rhs)
+        {
+            return lhs * rhs;
+        }
+        double divide(double lhs, double rhs)
+        {
+            if(rhs == 0.)
+            {
+                std::cout << "\nwarning, floating point division by zero returns 'inf' !" << std::endl;
+            }
+            return lhs / rhs;
+        }
+    };
+    
+    struct IntType
+    {
+        
+        int add(int lhs, int rhs)
+        {
+            return lhs + rhs;
+        }
+        int subtract(int lhs, int rhs)
+        {
+            return lhs - rhs;
+        }
+        int multiply(int lhs, int rhs)
+        {
+            return lhs * rhs;
+        }
+        int divide(int lhs, int rhs)
+        {
+            if(rhs == 0.)
+            {
+                std::cout << "error, integer division by zero will crash the program!" << std::endl;
+                std::cout << "returning lhs" << std::endl;
+                return lhs;
+            }
+            return lhs / rhs;
+        }
+    };
+
+/*    I didn't think you'd want this error but it's here
+    
+    std::cout << "clang++ -std=c++17 -Weverything -Wno-c++98-compat -Wno-missing-prototypes main.cpp && ./a.out" << std::endl;
+*/    
     FloatType ft;
     std::cout << "result of ft.add(): " << ft.add( 123.456f, 432.1f) << std::endl;
     std::cout << "result of ft.subtract(): " << ft.subtract( 123.456f, 432.1f) << std::endl;
@@ -127,6 +208,7 @@ int main()
     std::cout << "result of i.multiply(): " << i.multiply( 10, 0) << std::endl;
     std::cout << "result of i.divide(): " << i.divide( 10, 0) << std::endl;
 
+    
     std::cout << "good to go!" << std::endl;
 }
 
