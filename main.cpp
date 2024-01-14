@@ -160,7 +160,7 @@ struct IntType
     }
     int divide(int lhs, int rhs)
     {
-        if(rhs == 0.)
+        if(rhs == 0)
         {
             std::cout << "error, integer division by zero will crash the program!" << std::endl;
             std::cout << "returning lhs" << std::endl;
@@ -173,10 +173,6 @@ struct IntType
 int main() 
 {
 
-/*    I didn't think you'd want this error but it's here
-    
-    std::cout << "clang++ -std=c++17 -Weverything -Wno-c++98-compat -Wno-missing-prototypes main.cpp && ./a.out" << std::endl;
-*/    
     FloatType ft;
     std::cout << "result of ft.add(): " << ft.add( 123.456f, 432.1f) << std::endl;
     std::cout << "result of ft.subtract(): " << ft.subtract( 123.456f, 432.1f) << std::endl;
